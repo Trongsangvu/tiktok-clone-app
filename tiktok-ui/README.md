@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# 🚀 TikTok Clone App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a TikTok-style web application built with React (Create React App), using Yarn 4 for package management.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📦 Requirements
 
-### `npm start`
+- Node.js >= 18
+- Yarn 4 (Berry)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚙️ Setup Project
 
-### `npm test`
+### 1. Clone repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/Trongsangvu/tiktok-clone-app.git
+cd tiktok-clone-app/tiktok-ui
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Enable Yarn 4
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you don’t have Yarn 4 yet:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+corepack enable
+corepack prepare yarn@stable --activate
+```
 
-### `npm run eject`
+Check version:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+yarn -v
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. (Recommended) Use node_modules instead of PnP
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+yarn config set nodeLinker node-modules
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+yarn install or yarn
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔐 Environment Variables
 
-### Analyzing the Bundle Size
+Create a `.env` file in root:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```env
+REACT_APP_BASE_URL=http://localhost:5000
+or
+API Public: https://tiktok.fullstack.edu.vn/api
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ▶️ Run Project
 
-### Advanced Configuration
+```bash
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+App will run at:
 
-### Deployment
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🏗️ Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+yarn build
+```
+
+Output will be in:
+
+```
+/build
+```
+
+---
+
+## ⚠️ Notes
+
+- This project uses **Create React App (CRA)** → some warnings (like Sass deprecation) can be ignored.
+- If you encounter issues with dependencies, try:
+
+  ```bash
+  yarn install --force
+  ```
+
+- If using alias (`~` or `@`), ensure bundler config matches.
+
+---
+
+## 📌 Tech Stack
+
+- React (CRA)
+- SCSS Modules
+- Axios
+- Yarn 4
+
+---
+
+## 📈 Future Improvements
+
+- Migrate to Vite for better performance
+- Add video upload & streaming
+- Implement authentication & social features
+
+---

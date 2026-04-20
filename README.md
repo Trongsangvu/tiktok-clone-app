@@ -44,6 +44,10 @@ yarn -v
 ```bash
 yarn config set nodeLinker node-modules
 ```
+or
+```
+Create .yarnrc.yml file with nodeLinker: node-modules
+```
 
 ---
 

@@ -15,19 +15,6 @@ A modern, high-performance TikTok Web Application clone built with **Next.js 14 
 
 ---
 
-## 📁 Project Architecture & Routing
-
-This project uses Next.js App Router file-system routing:
-
-- `/` - **Home Page** (`src/app/page.js`)
-- `/following` - **Following Page** (`src/app/following/page.js`)
-- `/live` - **LIVE Page** (`src/app/live/page.js`)
-- `/upload` - **Upload Page** (`src/app/upload/page.js`)
-- `/search` - **Search Page** (`src/app/search/page.js`)
-- `/@:nickname` - **Profile Page** (`src/app/[nickname]/page.js` with path rewrite)
-
----
-
 ## 📦 Requirements
 
 - **Node.js**: `>= 18.0.0`
@@ -37,35 +24,21 @@ This project uses Next.js App Router file-system routing:
 
 ## ⚙️ Quick Start
 
-### 1. Clone & Navigate to App Directory
-
-```bash
-git clone https://github.com/Trongsangvu/tiktok-clone-app.git
-cd tiktok-app
-```
-
-### 2. Enable Yarn 4 (if needed)
-
-```bash
-corepack enable
-corepack prepare yarn@4.13.0 --activate
-```
-
-### 3. Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 yarn install
 ```
 
-### 4. Environment Configuration
+### 2. Environment Configuration
 
-Create a `.env.local` file in the `tiktok-app` directory:
+Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_BASE_URL=https://tiktok.fullstack.edu.vn/api/
+NEXT_PUBLIC_BASE_URL=https://your-api.com/api/
 ```
 
-### 5. Run Development Server
+### 3. Run Development Server
 
 ```bash
 yarn dev

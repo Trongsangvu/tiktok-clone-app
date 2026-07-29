@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import config from '~/config';
@@ -24,7 +26,6 @@ function Sidebar() {
             </Menu>
 
             <SuggestAccount label="Suggest accounts" />
-            {/* <SuggestAccount label="Following accounts" /> */}
         </aside>
     );
 }

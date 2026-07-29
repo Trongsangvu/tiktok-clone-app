@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useState, useEffect } from 'react';
 import {
     faCircleXmark, 
@@ -14,7 +16,7 @@ import AccountItem from '~/components/AccountItem';
 import { UseDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchServices';
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
@@ -22,7 +24,6 @@ function Search() {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    // When user stops typing about 500 miliseconds, debounce value will be updated with searchValue new value
     const debouncedValue = UseDebounce(searchValue, 500);
 
     const inputRef = useRef();
@@ -33,14 +34,13 @@ function Search() {
             return;
         }
 
-        // await finish -> run setSearchResult & setLoading
         const fetchApi = async () => {
             setLoading(true);
 
             const result = await searchServices.search(debouncedValue);
             setSearchResult(result);
             setLoading(false);
-        }
+        };
 
         fetchApi();
 
@@ -63,8 +63,6 @@ function Search() {
     };
 
     return ( 
-        // Using a wrapper <div> or <span> tag around the reference element solves
-        // This by creating a new parentNode context.
         <div>
             <HeadlessTippy
                 interactive={true}
@@ -92,7 +90,6 @@ function Search() {
                         onFocus={() => setShowResult(true)}
                     />
                     
-                    {/* Logic button clear */}
                     {!!searchValue && !loading && (
                         <button className={cx('clear')} onClick={handleClear}>
                             <FontAwesomeIcon icon={faCircleXmark}/>

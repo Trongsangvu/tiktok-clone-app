@@ -1,3 +1,5 @@
+'use client';
+
 import classNames  from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -12,7 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import Menu from '~/components/Popper/Menu';
 import Search from '../Search';
@@ -25,20 +27,17 @@ import { MessageIcon, UploadIcon } from '~/components/Icons';
 import config  from '~/config';
 
 
-const cx = classNames.bind(styles)  
+const cx = classNames.bind(styles);
 
 function Header() {
-    // const currentUser = false;
     const currentUser = true;
     
     const MENU_ITEMS = [
         {
             icon: <FontAwesomeIcon icon={faEarthAsia} />,
             title: 'English',
-            // subMenu level 2
             children: {
                 title: 'Language',
-                // Show Languages 
                 data: [
                     {
                         type: 'language',
@@ -49,9 +48,6 @@ function Header() {
                         type: 'language',
                         code: 'vi',
                         title: 'Viet Nam',
-
-                        // if we've menu level 2
-                        // children: {...}
                     },
                 ]
             },
@@ -67,22 +63,19 @@ function Header() {
         }
     ];
     
-    // handle logic
     const handleMenuChange = (menuItem) => {
-        // console.log(menuItem);
         switch (menuItem.type) {
             case 'language':
-                // Handle change language
                 break;
             default:
         }
-    }
+    };
 
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '@/dunz1610'
+            to: '/@dunz1610'
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
@@ -99,21 +92,20 @@ function Header() {
             icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
             title: 'Log out',
             to: './logout',
-            separate: true, // separate line
+            separate: true,
         },
-    ]
+    ];
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={config.routes.home} className={cx('logo-link')}>
-                    <img src={images.logo} alt="tiktok"/>
+                <Link href={config.routes.home} className={cx('logo-link')}>
+                    <img src={typeof images.logo === 'string' ? images.logo : images.logo.src} alt="tiktok"/>
                 </Link>
 
                 <Search />
 
                 <div className={cx('actions')}>
-                    {/** Show user - login and not login */}
                     {currentUser ? (
                         <>
                             <div>
@@ -131,11 +123,11 @@ function Header() {
                             
                         </>
                     ) : (
-                            <>
-                                <Button text>Upload</Button>
-                                <Button primary>Log in</Button>
-                            </>
-                        )}
+                        <>
+                            <Button text>Upload</Button>
+                            <Button primary>Log in</Button>
+                        </>
+                    )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
@@ -144,7 +136,6 @@ function Header() {
                                 alt='Chau Ngan'   
                                 fallback="https://th.bing.com/th/id/OIP.NFNT-QQ3zPiy0JCZKInAqAHaJb?rs=1&pid=ImgDetMain"                             
                             /> 
-                            
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />

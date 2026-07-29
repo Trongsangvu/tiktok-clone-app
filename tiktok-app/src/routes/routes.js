@@ -1,17 +1,17 @@
-import config  from '~/config';
+import config from '~/config';
 
 // Layouts
 import { HeaderOnly } from '~/layouts';
 
-// Pages
-import Home from '~/pages/Home';
-import Following from '~/pages/Following';
-import Profile from '~/pages/Profile';
-import Upload from '~/pages/Upload';
-import Search from '~/pages/Search';
-import Live from '~/pages/Live';
+// Views
+import Home from '~/views/Home';
+import Following from '~/views/Following';
+import Profile from '~/views/Profile';
+import Upload from '~/views/Upload';
+import Search from '~/views/Search';
+import Live from '~/views/Live';
 
-// Public routes: no need sign in to access
+// Public routes
 const publicRoutes = [
     { path: config.routes.home, component: Home },
     { path: config.routes.following, component: Following },
@@ -19,11 +19,8 @@ const publicRoutes = [
     { path: config.routes.live, component: Live },
     { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     { path: config.routes.search, component: Search, layout: null },
-]
+];
 
-// @: permanent symbol | nickname: pattern
-
-// Private routes: need sign in to access
 const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };
